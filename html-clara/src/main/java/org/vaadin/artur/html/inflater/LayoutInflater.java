@@ -3,6 +3,7 @@ package org.vaadin.artur.html.inflater;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -81,6 +82,9 @@ public class LayoutInflater {
 		if (fieldContainer == null)
 			return;
 		for (Field f : fieldContainer.getClass().getDeclaredFields()) {
+			if (f.isSynthetic() || Modifier.isStatic(f.getModifiers()))
+				continue;
+			
 			String fieldName = f.getName().toLowerCase(Locale.ENGLISH);
 			Component c;
 			c = contentHandler.globalIds.get(fieldName);

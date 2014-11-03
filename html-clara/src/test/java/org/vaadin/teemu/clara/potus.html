@@ -1,0 +1,23 @@
+<v-vertical-layout full>
+    <v-horizontal-layout spacing margin wide>   
+        <span>POTUS Database</span>
+        <v-button primary expand>Add new</v-button>
+    </v-horizontal-layout>
+    <v-table $potusList expand selectable full/>
+    <v-vertical-layout $form spacing margin>
+        <v-horizontal-layout spacing>   
+            <v-text-field caption="First Name" width="300px" />
+            <v-text-field caption="Last Name" width="300px" />
+        </v-horizontal-layout>
+        <v-horizontal-layout spacing>   
+            <v-combo-box caption="Party" width="300px" icon-inside="\u1234" />
+            <v-popup-date-field caption="Took Office" />
+            <v-popup-date-field caption="Left Office" />
+        </v-horizontal-layout>
+        <v-horizontal-layout spacing wide>  
+            <v-button primary>Save</button>
+            <v-button>Revert</button>
+            <v-button expand right>Delete</button>
+        </v-horizontal-layout>
+    </v-vertical-layout>
+</v-vertical-layout>
